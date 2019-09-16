@@ -1,0 +1,35 @@
+<!-- this is to show the history of booking of that visitor with different student-->
+{% extends "visitor/layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="mb-3">Time slots which you booked</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <!--<th scope="col">Symbol</th>-->
+          <!--<th scope="col">Shares</th>-->
+          <th scope="col">Student Name</th>
+          <th scope="col">Meeting Day</th>
+          <th scope="col">Meeting Time</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for trans in trans_history %}
+              <tr>
+               <td class="red-row">{{ trans["Fname"] }}</td>
+               <td class="red-row">{{ trans["day"] }}</td>
+               <td class="red-row">{{ trans["slot"] }}</td>
+              </tr>
+            {% endfor %}
+
+      </tbody>
+    </table>
+
+
+{% endblock %}

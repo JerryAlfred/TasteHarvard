@@ -1,0 +1,48 @@
+<!-- this is to show every timeslot of the student that are not cancelled -->
+{% extends "student/layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+
+    <h1 class="mb-3">Time slots which are not cancelled</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Confirmation Status</th>
+          <th scope="col">Visitor name</th>
+          <th scope="col">Meeting Day</th>
+          <th scope="col">Meeting Time</th>
+        </tr>
+      </thead>
+      <tbody>
+
+    {% for trans in trans_history %}
+    <tr>
+
+            {% if trans["confirmation_status"] == "Booked" %}
+               <td class="red-row">{{ trans["confirmation_status"] }}</td>
+               <td class="red-row">{{ trans["Fname"] + " " + trans["Lname"] }}</td>
+               <td class="red-row">{{ trans["day"] }}</td>
+               <td class="red-row">{{ trans["slot"] }}</td>
+
+            {% elif trans["confirmation_status"] == "Selected" %}
+               <td class="blue-row">{{ trans["confirmation_status"] }}</td>
+               <td class="blue-row">{{ trans["Fname"] + " " + trans["Lname"] }}</td>
+               <td class="blue-row">{{ trans["day"] }}</td>
+               <td class="blue-row">{{ trans["slot"] }}</td>
+            {% endif %}
+
+    </tr>
+    {% endfor %}
+
+
+      </tbody>
+
+    </table
+
+
+{% endblock %}

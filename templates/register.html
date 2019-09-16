@@ -1,0 +1,53 @@
+<!-- this is where student/visitor can log into our website-->
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<form action="/register" id="check" method="post">
+
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Register as</label>
+    <select class="form-control" select name="person">
+    <option disabled selected value="">Who are you registering as?</option>
+            <option value="student">Student</option>
+            <option value="visitor">Visitor</option>
+
+    </select>
+  </div>
+
+
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+    </div>
+
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="name" placeholder="First Name" type="text">
+    </div>
+
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="surname" placeholder="Last Name" type="text">
+    </div>
+
+
+
+    <div class="form-group">
+        <input class="form-control" name="password" placeholder="Password" type="password">
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="confirmation" placeholder="Retype your password" type="password">
+    </div>
+
+    <div class="form-group">
+        <input class="form-control" name="email" placeholder="Email address" type="email">
+    </div>
+
+    <button class="btn btn-primary" type="submit">Register</button>
+</form>
+<script>
+
+</script>
+{% endblock %}

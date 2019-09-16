@@ -1,0 +1,30 @@
+<!-- this is when the visitor to book time with student -->
+{% extends "visitor/layout.html" %}
+
+{% block title %}
+    Book time
+{% endblock %}
+
+{% block main %}
+
+<!-- to get the list of companies that user can sold-->
+    <form action="/visitor/book-time" method="post">
+
+    <h1 class="mb-3">What time do you want to book?</h1>
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Book</label>
+    <select class="form-control" id="exampleFormControlSelect1" select name="slot">
+    <option disabled selected value="">Choose...</option>
+      {% for timeslot_list in timeslot_lists %}
+      <option value="{{ timeslot_list["slot"] }}">{{ timeslot_list["slot"][2:] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary my-1">Submit</button>
+</form>
+
+
+{% endblock %}

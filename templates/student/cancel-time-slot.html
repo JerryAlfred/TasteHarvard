@@ -1,0 +1,30 @@
+<!-- this is when the student cancel the appointment with the visitor before he has booked the time-->
+{% extends "student/layout.html" %}
+
+{% block title %}
+    Cancel time slot
+{% endblock %}
+
+{% block main %}
+
+<!-- to get the list of companies that user can sold-->
+    <form action="/student/cancel-time-slot" method="post">
+
+    <h1 class="mb-3">Which time slots do you want to cancel?</h1>
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Cancel</label>
+    <select class="form-control" id="exampleFormControlSelect1" select name="slot">
+    <option disabled selected value="">Choose...</option>
+      {% for timeslot_list in timeslot_lists %}
+      <option value="{{ timeslot_list["slot"] }}">{{ timeslot_list["slot"][2:] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary my-1">Submit</button>
+</form>
+
+
+{% endblock %}
